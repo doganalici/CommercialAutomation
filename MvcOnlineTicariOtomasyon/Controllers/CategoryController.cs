@@ -39,8 +39,17 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
         public ActionResult CategoryGet(int id)
         {
-            var categori = c.Categories.Find(id);
-            return View("CategoryGet", categori);
+            var category = c.Categories.Find(id);
+            return View("CategoryGet", category);
+        }
+
+        public ActionResult CategoryUpdate(Category ct)
+        {
+            var ctgr=c.Categories.Find(ct.Id);
+            ctgr.Name = ct.Name;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+
         }
     }
 }

@@ -1,0 +1,43 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h1 style="text-align:center; font-size:50px;color:forestgreen;font-family:Elephant;font-style:italic;">Ürün Listesi</h1>
+<br />
+
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th style="text-align:center;">ID</th>
+        <th style="text-align:center;">KATEGORİ</th>
+        <th style="text-align:center;">ÜRÜN</th>
+        <th style="text-align:center;">MARKA</th>
+        <th style="text-align:center;">STOK</th>
+        <th style="text-align:center;">ALIŞ FİYATI</th>
+        <th style="text-align:center;">SATIŞ FİYATI</th>
+        <th style="text-align:center;">GÖRSEL</th>
+        <th style="text-align:center;">GÜNCELLE</th>
+        <th style="text-align:center;">SİL</th>
+    </tr>
+
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td style="text-align:center;">@p.Id</td>
+            <td style="text-align:center;">@p.Category.Name</td>
+            <td style="text-align:center;">@p.Name</td>
+            <td style="text-align:center;">@p.Brand</td>
+            <td style="text-align:center;">@p.Stock</td>
+            <td style="text-align:center;">@p.BuyingPrice</td>
+            <td style="text-align:center;">@p.SellingPrice</td>
+            <td style="text-align:center;">@p.Image</td>
+            <td style="text-align:center;"><a href="/Product/ProductGet/@p.Id"><i class="fas fa-spinner" style="color: green;"></i></a></td>
+            <td style="text-align:center;"><a href="/Product/ProductDelete/@p.Id"><i class="fas fa-times" style="color:red"></i></a></td>
+        </tr>
+    } 
+</table>
+
+<a href="/Product/ProductAdd" class="btn btn-primary">Ürün Ekle</a>

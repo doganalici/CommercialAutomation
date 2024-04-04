@@ -13,6 +13,7 @@
     <div class="form-group">
         <label>Kategori Adı</label>
         @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        @Html.HiddenFor(x=>x.Id)
     </div>
 
     <button class="btn btn-primary">Güncelle</button>
