@@ -13,8 +13,8 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         Context c = new Context();
         public ActionResult Index()
         {
-            var degerler=c.Categories.ToList(); ;
-            return View(degerler);
+            var kategoriler=c.Categories.ToList(); ;
+            return View(kategoriler);
         }
         [HttpGet]
         public ActionResult CategoryAdd()
