@@ -1,0 +1,30 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Customer
+@{
+    ViewBag.Title = "CustomerAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h1 style="text-align:center; font-size:50px;color:forestgreen;font-family:Elephant;font-style:italic;">Yeni Müşteri Ekleme</h1>
+<br />
+
+<form class="form-group" method="post">
+
+    <label>Müşteri Adı</label>
+    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+    <br />
+
+    <label>Müşteri Soyadı</label>
+    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+    <br />
+
+    <label>Müşteri Şehri</label>
+    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+    <br />
+
+    <label>Müşteri Mail Adresi</label>
+    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-info">Kaydet</button>
+</form>

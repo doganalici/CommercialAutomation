@@ -1,0 +1,39 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<SalesActivities>
+@{
+    ViewBag.Title = "DepartmentPersonnelSales";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h1 style="text-align:center; font-size:50px;color:forestgreen;font-family:Elephant;font-style:italic;">Personel Satış Detayları</h1>
+<br />
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active" style="font-size:20px;color:black">Personel Adı : @ViewBag.dp</li>
+</ol>
+
+<table class="table table-condensed" style="margin-top:20px;">
+    <tr>
+        <th style="text-align:center;">SATIŞ ID</th>
+        <th style="text-align:center;">ÜRÜN</th>
+        <th style="text-align:center;">MÜŞTERİ</th>
+        <th style="text-align:center;">FİYAT</th>
+        <th style="text-align:center;">ADET</th>
+        <th style="text-align:center;">TOPLAM TUTAR</th>
+        <th style="text-align:center;">TARİH</th>
+        <th style="text-align:center;">YAZDIR</th>
+    </tr>
+    @foreach (var s in Model)
+    {
+        <tr>
+            <td style="text-align:center;">@s.Id</td>
+            <td style="text-align:center;">@s.Product.Name</td>
+            <td style="text-align:center;">@s.Customer.FirstName @s.Customer.LastName</td>
+            <td style="text-align:center;">@s.Price ₺</td>
+            <td style="text-align:center;">@s.Piece</td>
+            <td style="text-align:center;">@s.TotalAmount ₺</td>
+            <td style="text-align:center;">@s.Date</td>
+            <td style="text-align:center;"><a href="#"><i class="fas fa-print" style="color:yellow"></i></a></td>
+        </tr>
+    }
+</table>

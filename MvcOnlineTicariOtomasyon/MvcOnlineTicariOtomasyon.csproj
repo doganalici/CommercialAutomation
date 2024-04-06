@@ -119,6 +119,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -284,6 +285,9 @@
     <Content Include="Views\Department\DepartmentAdd.cshtml" />
     <Content Include="Views\Department\DepartmentGet.cshtml" />
     <Content Include="Views\Department\DepartmentDetail.cshtml" />
+    <Content Include="Views\Department\DepartmentPersonnelSales.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\CustomerAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
