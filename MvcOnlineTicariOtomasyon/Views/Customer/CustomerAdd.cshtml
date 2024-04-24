@@ -12,18 +12,22 @@
 
     <label>Müşteri Adı</label>
     @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.FirstName, "", new { @style = "color:red" })
     <br />
 
     <label>Müşteri Soyadı</label>
-    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.LastName, "", new { @style = "color:red" })
     <br />
 
     <label>Müşteri Şehri</label>
-    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+    @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.City, "", new { @style = "color:red" })
     <br />
 
     <label>Müşteri Mail Adresi</label>
-    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Mail, "", new { @style = "color:red" })
     <br />
 
     <button class="btn btn-info">Kaydet</button>

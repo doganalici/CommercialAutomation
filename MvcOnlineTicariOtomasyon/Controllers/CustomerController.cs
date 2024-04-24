@@ -13,7 +13,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         Context c = new Context();
         public ActionResult Index()
         {
-            var musteriler = c.Customers.ToList();
+            var musteriler = c.Customers.Where(x => x.Status == true).ToList();
             return View(musteriler);
         }
 
@@ -25,9 +25,52 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult CustomerAdd(Customer cs)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("CustomerAdd");
+            }
+            cs.Status = true;
             c.Customers.Add(cs);
             c.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult CustomerDelete(int id)
+        {
+            var cst = c.Customers.Find(id);
+            cst.Status = false;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult CustomerGet(int id)
+        {
+            var customer= c.Customers.Find(id);
+            return View("CustomerGet", customer);
+        }
+
+        public ActionResult CustomerUpdate(Customer cs)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("CustomerGet");
+            }
+            var cstm=c.Customers.Find(cs.Id);
+            cstm.FirstName = cs.FirstName;
+            cstm.LastName = cs.LastName;
+            cstm.City = cs.City;
+            cstm.Mail = cs.Mail;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+
+        public ActionResult CustomerSales(int id)
+        {
+            var musteri = c.SalesActivitiess.Where(x => x.CustomerId == id).ToList();
+            var cs=c.Customers.Where(x => x.Id == id).Select(y => y.FirstName + " " + y.LastName).FirstOrDefault();
+            ViewBag.customer = cs;
+            return View(musteri);
         }
     }
 }

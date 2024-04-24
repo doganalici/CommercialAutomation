@@ -1,0 +1,36 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Customer
+@{
+    ViewBag.Title = "CustomerGet";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h1 style="text-align:center; font-size:50px;color:forestgreen;font-family:Elephant;font-style:italic;">Müşteri Güncelleme</h1>
+<br />
+
+
+
+@using (Html.BeginForm("CustomerUpdate", "Customer", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Müşteri Adı</label>
+        @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.Id)
+        @Html.ValidationMessageFor(x => x.FirstName, "", new { @style = "color:red" })
+        <br />
+        <label>Müşteri Soyadı</label>
+        @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.LastName, "", new { @style = "color:red" })
+        <br />
+        <label>Müşteri Şehri</label>
+        @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.City, "", new { @style = "color:red" })
+        <br />
+        <label>Müşteri Mail Adresi</label>
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Mail, "", new { @style = "color:red" })
+
+
+    </div>
+    <button class="btn btn-primary">Güncelle</button>
+}
